@@ -5,10 +5,10 @@ package com.mmall.common;
  */
 public enum  ResponseCode {
 
-    SUCCESS(1,"success"),
-    ERROR(1,"error"),
-    NEED_LOGIN(10,"need login"),
-    ILLEGAL_ARGUMENT(2,"illegal argument");
+    SUCCESS(0,"SUCCESS"),
+    ERROR(1,"ERROR"),
+    NEED_LOGIN(10,"NEED LOGIN"),
+    ILLEGAL_ARGUMENT(2,"ILLEGAL ARGUMENT");
 
 
     private final String desc;

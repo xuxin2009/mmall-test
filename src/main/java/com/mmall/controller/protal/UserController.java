@@ -1,4 +1,4 @@
-package com.mmall.controller;
+package com.mmall.controller.protal;
 
 import com.mmall.common.Const;
 import com.mmall.common.ServerResponse;

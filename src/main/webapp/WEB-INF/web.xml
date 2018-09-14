@@ -46,9 +46,6 @@
         <!--servlet配置，0或者大于0：容器启动时初始化servle；小于0：在使用时才初始化servlet-->
         <load-on-startup>1</load-on-startup>
     </servlet>
-
-
-
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.do</url-pattern>

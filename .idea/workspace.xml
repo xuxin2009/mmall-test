@@ -1100,7 +1100,7 @@
       <workItem from="1536933216714" duration="13623000" />
       <workItem from="1537150145660" duration="5296000" />
       <workItem from="1537234839841" duration="11146000" />
-      <workItem from="1537337470400" duration="7628000" />
+      <workItem from="1537337470400" duration="7661000" />
     </task>
     <task id="LOCAL-00001" summary="add ignore file">
       <created>1536652927021</created>
@@ -1138,11 +1138,17 @@
       <option name="project" value="LOCAL" />
       <updated>1537347543068</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add ProductController ... files">
+      <created>1537347577813</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1537347577813</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112841000" />
+    <option name="totallyTimeSpent" value="112874000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1154,7 +1160,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />

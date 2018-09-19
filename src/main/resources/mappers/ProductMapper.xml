@@ -176,4 +176,50 @@
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <update id="updateSetProductStatus" parameterType="map" >
+    update mmall_product SET status = #{status}
+    where id = #{productId}
+  </update>
+
+  <select id="selectProductList" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/>
+    FROM mmall_product
+    ORDER  by id ASC
+  </select>
+
+  <select id="selectSearchProductByIdOrName" parameterType="map" resultMap="BaseResultMap">
+    <!--SELECT <include refid="Base_Column_List"/>-->
+    <!--from mmall_product-->
+    <!--WHERE  id like "%"+#{productId}+"%" or name like "%"+#{productName}+"%"-->
+
+    <!--使用下面的SQL更好-->
+    SELECT <include refid="Base_Column_List"/>
+    from mmall_product
+    <where>
+      <if test="productName != null">
+        AND name like #{productName}
+      </if>
+      <if test="productId != null">
+        and id = #{productId}
+      </if>
+    </where>
+  </select>
+  
+  <select id="selectByNameAndCategoryId" parameterType="list" resultMap="BaseResultMap">
+  SELECT <include refid="Base_Column_List"/>
+    from mmall_product
+    WHERE  status = 1;
+    <if test="productName != null">
+      AND name LIKE #{productName}
+    </if>
+    <if test="categoryList != null">
+      and categoryId in 
+      <foreach item="item" index="index" open="{" separator="," close="}" collection="categoryIdList">
+        #{item}
+      </foreach>
+
+    </if>
+  </select>
+
 </mapper>

@@ -17,6 +17,12 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
+      <profile default="false" name="Annotation profile for redis-test" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+      </profile>
       <profile default="false" name="Annotation profile for mmall-test" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -27,6 +33,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="mmall-test" target="1.7" />
+      <module name="redis-test" target="1.7" />
+      <module name="spring-redis-Test" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

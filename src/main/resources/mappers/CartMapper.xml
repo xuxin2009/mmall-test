@@ -26,12 +26,9 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.mmall.pojo.Cart" >
-    insert into mmall_cart (id, user_id, product_id, 
-      quantity, checked, create_time, 
-      update_time)
+    insert into mmall_cart (id,user_id,product_id,quantity,checked,create_time,update_time)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, 
-      #{quantity,jdbcType=INTEGER}, #{checked,jdbcType=INTEGER}, now()),
-      now()}
+      #{quantity,jdbcType=INTEGER}, #{checked,jdbcType=INTEGER}, now(),now())
   </insert>
   <insert id="insertSelective" parameterType="com.mmall.pojo.Cart" >
     insert into mmall_cart
@@ -101,7 +98,7 @@
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
-        update_time = now()},
+        update_time = now(),
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -135,5 +132,31 @@
     SELECT count(1) from mmall_cart
     where user_id = #{userId}
     and checked = 0;
+  </select>
+  
+  <delete id="deleteByUserIdProductIds" parameterType="map" >
+    DELETE from mmall_cart
+    WHERE userId = #{userId}
+    <if test="productIdList != null">
+      and product_Id in
+      <foreach collection="productIdList" item="item" index="index" open="{" separator="," close="}">
+      #{item}
+      </foreach>
+    </if>
+  </delete>
+
+  <update id="checkedOrUncheckedProduct" parameterType="map">
+    UPDATE  mmall_cart
+    SET  checked = #{checked},
+    update_time = now()
+    where user_id = #{userId}
+    <if test="productId != null" >
+      and product_id = #{productId}
+    </if>
+  </update>
+
+  <select id="selectCartProductCount" parameterType="int" resultType="int">
+    SELECT IFNULL(SUM(quantity),0)  from mmall_cart
+    where user_id = #{userId}
   </select>
 </mapper>

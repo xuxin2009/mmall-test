@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2018/9/13.
  */
-public interface CategoryServie {
+public interface CategoryService {
     /**
      * 添加品类
      * @param categoryName

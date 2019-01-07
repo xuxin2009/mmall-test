@@ -5,7 +5,7 @@ import com.google.common.collect.Sets;
 import com.mmall.common.ServerResponse;
 import com.mmall.dao.CategoryMapper;
 import com.mmall.pojo.Category;
-import com.mmall.service.CategoryServie;
+import com.mmall.service.CategoryService;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -21,7 +21,7 @@ import java.util.Set;
  */
 
 @Service
-public class CategoryServiceImpl implements CategoryServie {
+public class CategoryServiceImpl implements CategoryService {
     private Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
     @Autowired
     private CategoryMapper categoryMapper;

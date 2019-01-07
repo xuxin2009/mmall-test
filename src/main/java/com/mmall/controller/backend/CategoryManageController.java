@@ -3,11 +3,8 @@ package com.mmall.controller.backend;
 import com.mmall.common.Const;
 import com.mmall.common.ResponseCode;
 import com.mmall.common.ServerResponse;
-import com.mmall.pojo.Category;
 import com.mmall.pojo.User;
-import com.mmall.service.CategoryServie;
-import com.mmall.service.UserService;
-import org.apache.ibatis.annotations.Param;
+import com.mmall.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +23,7 @@ public class CategoryManageController {
 
 
     @Autowired
-    private CategoryServie categoryServie;
+    private CategoryService categoryService;
 
     /**
      * 添加品类
@@ -48,7 +45,7 @@ public class CategoryManageController {
         {
             return ServerResponse.createByErrorMessage("无权限操作，需要管理员权限");
         }
-        return categoryServie.addCategory(categoryName,parentId);
+        return categoryService.addCategory(categoryName,parentId);
     }
 
 
@@ -72,7 +69,7 @@ public class CategoryManageController {
         {
             return ServerResponse.createByErrorMessage("无权限操作，需要管理员权限");
         }
-        return categoryServie.setCategoryName(newCategoryName,categoryId);
+        return categoryService.setCategoryName(newCategoryName,categoryId);
     }
 
     /**
@@ -95,7 +92,7 @@ public class CategoryManageController {
             return ServerResponse.createByErrorMessage("无权限操作，需要管理员权限");
         }
 
-        return categoryServie.getChildParallelCategory(categoryId);
+        return categoryService.getChildParallelCategory(categoryId);
     }
 
     /**
@@ -117,7 +114,7 @@ public class CategoryManageController {
         {
             return ServerResponse.createByErrorMessage("无权限操作，需要管理员权限");
         }
-        return categoryServie.selectCategoryAndChildById(categoryId);
+        return categoryService.selectCategoryAndChildById(categoryId);
     }
 
 }

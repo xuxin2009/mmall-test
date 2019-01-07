@@ -10,19 +10,16 @@ import com.mmall.dao.CategoryMapper;
 import com.mmall.dao.ProductMapper;
 import com.mmall.pojo.Category;
 import com.mmall.pojo.Product;
-import com.mmall.service.CategoryServie;
+import com.mmall.service.CategoryService;
 import com.mmall.service.ProductService;
 import com.mmall.utils.DateTimeUtil;
 import com.mmall.utils.PropertiesUtil;
 import com.mmall.vo.ProductDetailVO;
 import com.mmall.vo.ProductListVO;
-import org.apache.commons.collections.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
     private CategoryMapper categoryMapper;
 
     @Autowired
-    private CategoryServie categoryServie;
+    private CategoryService categoryService;
     /**
      * 新增OR更新产品
      * @param product
@@ -295,7 +292,7 @@ public class ProductServiceImpl implements ProductService {
                 PageInfo pageInfo = new PageInfo(productListVOList);
                 return ServerResponse.createBySuccess(pageInfo);
             }
-            categoryIdList = categoryServie.selectCategoryAndChildById(category.getId()).getData();
+            categoryIdList = categoryService.selectCategoryAndChildById(category.getId()).getData();
         }
         if(StringUtils.isNotBlank(keyword))
         {

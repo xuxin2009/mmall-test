@@ -1,13 +1,12 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="mmall-test:war exploded">
-    <output-path>$PROJECT_DIR$/target/mmall</output-path>
+    <output-path>$PROJECT_DIR$/out/artifacts/mmall_test_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="mmall-test" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-servlet-api:7.0.64" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.0.0.RELEASE" />
@@ -54,10 +53,9 @@
           <element id="library" level="project" name="Maven: redis.clients:jedis:2.9.0" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.4.2" />
           <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.16.10" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/alipay-sdk-java-3.3.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/alipay-trade-sdk-20161215.jar" />
         </element>
-      </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/mmall/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="mmall-test/web/Web" />
     </root>

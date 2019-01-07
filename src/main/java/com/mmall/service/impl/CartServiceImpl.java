@@ -1,7 +1,9 @@
 package com.mmall.service.impl;
 
+import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.mmall.common.Const;
+import com.mmall.common.ResponseCode;
 import com.mmall.common.ServerResponse;
 import com.mmall.dao.CartMapper;
 import com.mmall.dao.ProductMapper;
@@ -33,8 +35,12 @@ public class CartServiceImpl implements CartService {
     private ProductMapper productMapper;
 
     @Override
-    public ServerResponse add(Integer userId, Integer count, Integer productId) {
+    public ServerResponse<CartVO> add(Integer userId, Integer count, Integer productId) {
 
+        if(productId == null || count==null)
+        {
+            return ServerResponse.createByErrorMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+        }
         Cart cart = cartMapper.selectCartByUserIdProductId(userId,productId);
         if(cart == null)
         {
@@ -52,10 +58,65 @@ public class CartServiceImpl implements CartService {
             cartMapper.updateByPrimaryKeySelective(cart);
         }
         CartVO cartVO = this.getCartVOLimit(userId);
-
         return ServerResponse.createBySuccess(cartVO);
     }
 
+    /**
+     * 全选或全不选
+     * @param userId
+     * @param checked
+     * @return
+     */
+    @Override
+    public ServerResponse<CartVO> selectAllOrUnSelect(Integer userId,Integer productId,Integer checked) {
+        cartMapper.checkedOrUncheckedProduct(userId, productId, checked);
+        return this.listCart(userId);
+    }
+
+    @Override
+    public ServerResponse<CartVO> listCart(Integer userId) {
+        CartVO cartVO = this.getCartVOLimit(userId);
+        return ServerResponse.createBySuccess(cartVO);
+    }
+
+    @Override
+    public ServerResponse<CartVO> update(Integer userId, Integer count, Integer productId) {
+
+        //注意对传过来的参数做验证
+        if(count == null || productId == null )
+        {
+            return ServerResponse.createByErrorMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+        }
+        Cart cart = cartMapper.selectCartByUserIdProductId(userId, productId);
+        if(cart != null)
+        {
+            cart.setQuantity(count);
+        }
+        cartMapper.updateByPrimaryKeySelective(cart);
+        CartVO cartVO=this.getCartVOLimit(userId);
+        return  ServerResponse.createBySuccess(cartVO);
+    }
+
+    /**
+     * 删除产品，可能删除多个商品
+     * @param userId
+     * @param products
+     * @return
+     */
+    @Override
+    public ServerResponse<CartVO> deleteProduct(Integer userId, String products) {
+    List<String> productList = Splitter.on(",").splitToList(products);//使用guava提供的splitter提供的方法直接将字符串转换成list,
+        // 否则需要先将字符串转成数组，然后在遍历出来
+        if(CollectionUtils.isEmpty(productList))
+        {
+            return ServerResponse.createByErrorMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+        }
+        cartMapper.deleteByUserIdProductIds(userId,productList);
+        CartVO cartVO=this.getCartVOLimit(userId);
+        return  ServerResponse.createBySuccess(cartVO);
+    }
+
+    //购物车核心方法
     private CartVO getCartVOLimit(Integer userId)
     {
         CartVO cartVO = new CartVO();
@@ -82,11 +143,13 @@ public class CartServiceImpl implements CartService {
                     cartProductVO.setProductStatus(product.getStatus());
                     cartProductVO.setProductPrice(product.getPrice());
                     cartProductVO.setProductStock(product.getStock());
+
                     //判断库存
                     int buyLimitCount = 0;
-                    if(product.getStock() >= cartItem.getQuantity())
+                    if(product.getStock() >= cartItem.getQuantity())//库存充足
                     {
                         cartProductVO.setLimitQuantity(Const.cart.LIMIT_NUM_SUCCESS);
+                        buyLimitCount = cartItem.getQuantity();
                     }else
                     {
                         buyLimitCount = product.getStock();
@@ -98,9 +161,9 @@ public class CartServiceImpl implements CartService {
                         cartMapper.updateByPrimaryKeySelective(cart4Quantity);
                     }
 
-                    cartProductVO.setQuantity(buyLimitCount);
+                    cartProductVO.setQuantity(buyLimitCount);//更新产品数量
                     //计算某个产品的总价
-                    cartProductVO.setProductTotalPrice(BigdecimalUtil.mul(product.getPrice().doubleValue(),buyLimitCount));
+                    cartProductVO.setProductTotalPrice(BigdecimalUtil.mul(product.getPrice().doubleValue(),cartProductVO.getQuantity()));
                     cartProductVO.setProductChecked(cartItem.getChecked());
                 }
                 if(cartItem.getChecked() == Const.cart.CHECKED)
@@ -114,7 +177,6 @@ public class CartServiceImpl implements CartService {
         cartVO.setCartProductVOList(cartProductVOList);
         cartVO.setAllChecked(getAllCheckedStatus(userId));
         cartVO.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix"));
-
         return  cartVO;
     }
 
@@ -128,5 +190,13 @@ public class CartServiceImpl implements CartService {
     }
 
 
-
+    @Override
+    public ServerResponse<Integer> getCartProductCount(Integer userId) {
+        if(userId == null)
+        {
+            return ServerResponse.createBySuccess(0);
+        }
+       int count =  cartMapper.selectCartProductCount(userId);
+        return ServerResponse.createBySuccess(count);
+    }
 }

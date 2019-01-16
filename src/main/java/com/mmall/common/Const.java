@@ -72,6 +72,18 @@ public class Const {
         {
             return code;
         }
+
+        public static OrderStatusEnum codeOf(int code)
+        {
+            for(OrderStatusEnum orderStatusEnum:values())
+            {
+                if(orderStatusEnum.getCode() == code)
+                {
+                    return orderStatusEnum;
+                }
+            }
+            throw new RuntimeException("没有找到对应的枚举");
+        }
     }
 
     public interface AlipayCallback
@@ -103,6 +115,40 @@ public class Const {
         public String getValue()
         {
             return  value;
+        }
+    }
+
+    public enum PaymentTypeEnum
+    {
+        ONLINE_PAY(1,"在线支付");
+
+        private  String value;
+        private int code;
+
+        PaymentTypeEnum(int code,String value)
+        {
+            this.code = code;
+            this.value = value;
+        }
+        public int  getCode()
+        {
+            return code;
+        }
+        public String getValue()
+        {
+            return  value;
+        }
+
+        public static PaymentTypeEnum codeOf(int code)
+        {
+            for(PaymentTypeEnum paymentTypeEnum: values())
+            {
+                if(paymentTypeEnum.getCode()== code)
+                {
+                    return paymentTypeEnum;
+                }
+            }
+            throw new RuntimeException("没有找到对应的枚举");
         }
     }
 }

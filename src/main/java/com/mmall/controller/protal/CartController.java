@@ -7,16 +7,17 @@ import com.mmall.pojo.User;
 import com.mmall.service.CartService;
 import com.mmall.vo.CartVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+
 
 import javax.servlet.http.HttpSession;
 
 /**
  * Created by Administrator on 2018/12/18.
  */
-@RestController
+@Controller
 @RequestMapping("/cart/")
 public class CartController {
 
@@ -119,7 +120,7 @@ public class CartController {
      * @param session
      * @return
      */
-    @RequestMapping("unselect_all.do")
+    @RequestMapping("un_select_all.do")
     @ResponseBody
     public ServerResponse<CartVO> unSelectAll(HttpSession session)
     {
@@ -131,7 +132,7 @@ public class CartController {
         return  cartService.selectAllOrUnSelect(user.getId(),null,Const.cart.UN_CHECKED);
     }
     //单独选
-    @RequestMapping("select_product.do")
+    @RequestMapping("select.do")
     @ResponseBody
     public ServerResponse<CartVO> selectProduct(HttpSession session,Integer productId)
     {
@@ -143,7 +144,7 @@ public class CartController {
         return  cartService.selectAllOrUnSelect(user.getId(),productId,Const.cart.CHECKED);
     }
     //单独反选
-    @RequestMapping("unselect_product.do")
+    @RequestMapping("un_select.do")
     @ResponseBody
     public ServerResponse<CartVO> unSelectProduct(HttpSession session,Integer productId)
     {

@@ -94,10 +94,12 @@ public interface UserService {
     ServerResponse<String> restPassword(String oldPassword,String newPassword,HttpSession session);
 
     /**
-     * 登录状态更新个人信息
+     * 111.登录状态更新个人信息
      * @param session
      * @param user
      * @return
      */
     ServerResponse<User> updateInformation(HttpSession session,User user);
+
+    ServerResponse<User> getInformation(Integer userId);
 }

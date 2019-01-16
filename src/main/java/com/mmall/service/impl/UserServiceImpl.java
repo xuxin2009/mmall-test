@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ejb.interceptor.SpringBeanAutowiringInterceptor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 import javax.servlet.http.HttpSession;
@@ -275,5 +276,22 @@ public class UserServiceImpl implements UserService{
             return  ServerResponse.createByErrorMessage("更新资料失败");
         }
         return ServerResponse.createBySuccess("更新资料成功",currentUser);
+    }
+
+    /**
+     * 获取登陆用户信息
+     * @param userId
+     * @return
+     */
+    @Override
+    public ServerResponse<User> getInformation(Integer userId) {
+
+        User user = userMapper.selectByPrimaryKey(userId);
+        if(user == null)
+        {
+            return ServerResponse.createByErrorMessage("找不到当前用户");
+        }
+        user.setPassword(StringUtils.EMPTY);
+        return ServerResponse.createBySuccess(user);
     }
 }

@@ -43,7 +43,7 @@ public class ProductController {
     @RequestMapping("/list.do")
     public ServerResponse<PageInfo> list(@RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
                                          @RequestParam(value = "pageSize",defaultValue = "10") int pageSize,
-                                         @RequestParam(value = "categoryId",required = false) int categoryId,
+                                         @RequestParam(value = "categoryId",required = false) Integer categoryId,
                                          @RequestParam(value = "keyword",required = false) String keyword,
                                          @RequestParam(value = "orderby",defaultValue = "") String orderby)
     {

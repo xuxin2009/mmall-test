@@ -281,7 +281,7 @@ public class ProductServiceImpl implements ProductService {
         }
 
         List<Integer> categoryIdList = new ArrayList<Integer>();
-
+        //判断categoryId是否为空
         if(categoryId != null)
         {
             Category category = categoryMapper.selectByPrimaryKey(categoryId);
@@ -294,11 +294,13 @@ public class ProductServiceImpl implements ProductService {
             }
             categoryIdList = categoryService.selectCategoryAndChildById(category.getId()).getData();
         }
+        //判断keyword是否为空
         if(StringUtils.isNotBlank(keyword))
         {
             keyword = new StringBuilder().append("%").append(keyword).append("%").toString();
         }
         PageHelper.startPage(pageNum, pageSize);
+
         if(StringUtils.isNotBlank(orderby))
         {
             if(Const.productListOrderBy.PRICE_DESC_ASC.contains(orderby))
@@ -307,8 +309,10 @@ public class ProductServiceImpl implements ProductService {
                 PageHelper.orderBy(orderByArray[0]+" "+orderByArray[1]);
             }
         }
-        List<Product> productList =productMapper.selectByNameAndCategoryId(StringUtils.isNotBlank(keyword) ? null : keyword,
-                categoryIdList.size() == 0 ? null : categoryIdList );
+        List<Product> productList = productMapper.selectByNameAndCategoryId(
+               StringUtils.isBlank(keyword) ? null : keyword,
+               categoryIdList.size() == 0 ? null : categoryIdList );
+
         List<ProductListVO> productListVOList = Lists.newArrayList();
         for(Product product : productList)
         {

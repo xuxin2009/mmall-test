@@ -176,7 +176,6 @@
     WHERE username = #{username}
     and question = #{question}
     and answer = #{answer}
-``
   </select>
 
   <update id="updateForgetResetPassword" parameterType="map">

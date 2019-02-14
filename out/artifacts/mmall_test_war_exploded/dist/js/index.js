@@ -3,7 +3,7 @@ webpackJsonp([3],{
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(114);
+	module.exports = __webpack_require__(113);
 
 
 /***/ }),
@@ -379,7 +379,7 @@ webpackJsonp([3],{
 
 /***/ }),
 
-/***/ 114:
+/***/ 113:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*
@@ -390,12 +390,12 @@ webpackJsonp([3],{
 	*/
 
 	'use strict';
-	__webpack_require__(115);
+	__webpack_require__(114);
 	__webpack_require__(14);
 	__webpack_require__(7);
-	__webpack_require__(117);
-	var navSide         = __webpack_require__(121);
-	var templateBanner  = __webpack_require__(125);
+	__webpack_require__(116);
+	var navSide         = __webpack_require__(120);
+	var templateBanner  = __webpack_require__(124);
 	var _mm             = __webpack_require__(10);
 
 	$(function() {
@@ -416,14 +416,14 @@ webpackJsonp([3],{
 
 /***/ }),
 
-/***/ 115:
+/***/ 114:
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 117:
+/***/ 116:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*
@@ -435,26 +435,26 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	__webpack_require__(118);
-	__webpack_require__(120);
+	__webpack_require__(117);
+	__webpack_require__(119);
 
 /***/ }),
 
-/***/ 118:
+/***/ 117:
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 120:
+/***/ 119:
 /***/ (function(module, exports) {
 
 	window.console&&console.warn("This version of Unslider is due to be deprecated by December 1. Please visit unslider.com for details on how to upgrade."),function(t,s){if(!t)return s;var i=function(){this.el=s,this.items=s,this.sizes=[],this.max=[0,0],this.current=0,this.interval=s,this.opts={speed:500,delay:3e3,complete:s,keys:!s,dots:s,fluid:s};var i=this;this.init=function(s,i){return this.el=s,this.ul=s.children("ul"),this.max=[s.outerWidth(),s.outerHeight()],this.items=this.ul.children("li").each(this.calculate),this.opts=t.extend(this.opts,i),this.setup(),this},this.calculate=function(s){var e=t(this),n=e.outerWidth(),h=e.outerHeight();i.sizes[s]=[n,h],n>i.max[0]&&(i.max[0]=n),h>i.max[1]&&(i.max[1]=h)},this.setup=function(){if(this.el.css({overflow:"hidden",width:i.max[0],height:this.items.first().outerHeight()}),this.ul.css({width:100*this.items.length+"%",position:"relative"}),this.items.css("width",100/this.items.length+"%"),this.opts.delay!==s&&(this.start(),this.el.hover(this.stop,this.start)),this.opts.keys&&t(document).keydown(this.keys),this.opts.dots&&this.dots(),this.opts.fluid){var e=function(){i.el.css("width",Math.min(Math.round(i.el.outerWidth()/i.el.parent().outerWidth()*100),100)+"%")};e(),t(window).resize(e)}this.opts.arrows&&this.el.parent().append('<p class="arrows"><span class="prev">芒鈥犅�</span><span class="next">芒鈥犫€�</span></p>').find(".arrows span").click(function(){t.isFunction(i[this.className])&&i[this.className]()}),t.event.swipe&&this.el.on("swipeleft",i.prev).on("swiperight",i.next)},this.move=function(s,e){this.items.eq(s).length||(s=0),0>s&&(s=this.items.length-1);var n=this.items.eq(s),h={height:n.outerHeight()},o=e?5:this.opts.speed;this.ul.is(":animated")||(i.el.find(".dot:eq("+s+")").addClass("active").siblings().removeClass("active"),this.el.animate(h,o)&&this.ul.animate(t.extend({left:"-"+s+"00%"},h),o,function(){i.current=s,t.isFunction(i.opts.complete)&&!e&&i.opts.complete(i.el)}))},this.start=function(){i.interval=setInterval(function(){i.move(i.current+1)},i.opts.delay)},this.stop=function(){return i.interval=clearInterval(i.interval),i},this.keys=function(s){var e=s.which,n={37:i.prev,39:i.next,27:i.stop};t.isFunction(n[e])&&n[e]()},this.next=function(){return i.stop().move(i.current+1)},this.prev=function(){return i.stop().move(i.current-1)},this.dots=function(){var s='<ol class="dots">';t.each(this.items,function(t){s+='<li class="dot'+(1>t?" active":"")+'">'+(t+1)+"</li>"}),s+="</ol>",this.el.addClass("has-dots").append(s).find(".dot").click(function(){i.move(t(this).index())})}};t.fn.unslider=function(s){var e=this.length;return this.each(function(n){var h=t(this),o=(new i).init(h,s);h.data("unslider"+(e>1?"-"+(n+1):""),o)})}}(window.jQuery,!1);
 
 /***/ }),
 
-/***/ 121:
+/***/ 120:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*
@@ -464,9 +464,9 @@ webpackJsonp([3],{
 	* @Last Modified time: 2017-05-24 16:46:02
 	*/
 	'use strict';
-	__webpack_require__(122);
+	__webpack_require__(121);
 	var _mm             = __webpack_require__(10);
-	var templateIndex   = __webpack_require__(124);
+	var templateIndex   = __webpack_require__(123);
 	// 侧边导航
 	var navSide = {
 	    option : {
@@ -504,56 +504,56 @@ webpackJsonp([3],{
 
 /***/ }),
 
-/***/ 122:
+/***/ 121:
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 124:
+/***/ 123:
 /***/ (function(module, exports) {
 
 	module.exports = "{{#navList}}\n{{#isActive}}\n<li class=\"nav-item active\">\n{{/isActive}}\n{{^isActive}}\n<li class=\"nav-item\">\n{{/isActive}}\n    <a class=\"link\" href=\"{{href}}\">{{desc}}</a>\n</li>\n{{/navList}} ";
 
 /***/ }),
 
-/***/ 125:
+/***/ 124:
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"banner\">\n    <ul>\n        <li>\n            <a href=\"./list.html?categoryId=100021\" target=\"_blank\">\n                <img class=\"banner-img\" src=\"" + __webpack_require__(126) + "\" />\n            </a>\n        </li>\n        <li>\n            <a href=\"./list.html?categoryId=100030\" target=\"_blank\">\n                <img class=\"banner-img\" src=\"" + __webpack_require__(127) + "\" />\n            </a>\n        </li>\n        <li>\n            <a href=\"./list.html?categoryId=100016\" target=\"_blank\">\n                <img class=\"banner-img\" src=\"" + __webpack_require__(128) + "\" />\n            </a>\n        </li>\n        <li>\n            <a href=\"./list.html?categoryId=100001\" target=\"_blank\">\n                <img class=\"banner-img\" src=\"" + __webpack_require__(129) + "\" />\n            </a>\n        </li>\n        <li>\n            <a href=\"./list.html?categoryId=100021\" target=\"_blank\">\n                <img class=\"banner-img\" src=\"" + __webpack_require__(130) + "\" />\n            </a>\n        </li>\n    </ul>\n    <div class=\"banner-arrow prev\">\n        <i class=\"fa fa-angle-left\"></i>\n    </div>\n    <div class=\"banner-arrow next\">\n        <i class=\"fa fa-angle-right\"></i>\n    </div>\n</div>";
+	module.exports = "<div class=\"banner\">\n    <ul>\n        <li>\n            <a href=\"./list.html?categoryId=100021\" target=\"_blank\">\n                <img class=\"banner-img\" src=\"" + __webpack_require__(125) + "\" />\n            </a>\n        </li>\n        <li>\n            <a href=\"./list.html?categoryId=100030\" target=\"_blank\">\n                <img class=\"banner-img\" src=\"" + __webpack_require__(126) + "\" />\n            </a>\n        </li>\n        <li>\n            <a href=\"./list.html?categoryId=100016\" target=\"_blank\">\n                <img class=\"banner-img\" src=\"" + __webpack_require__(127) + "\" />\n            </a>\n        </li>\n        <li>\n            <a href=\"./list.html?categoryId=100001\" target=\"_blank\">\n                <img class=\"banner-img\" src=\"" + __webpack_require__(128) + "\" />\n            </a>\n        </li>\n        <li>\n            <a href=\"./list.html?categoryId=100021\" target=\"_blank\">\n                <img class=\"banner-img\" src=\"" + __webpack_require__(129) + "\" />\n            </a>\n        </li>\n    </ul>\n    <div class=\"banner-arrow prev\">\n        <i class=\"fa fa-angle-left\"></i>\n    </div>\n    <div class=\"banner-arrow next\">\n        <i class=\"fa fa-angle-right\"></i>\n    </div>\n</div>";
 
 /***/ }),
 
-/***/ 126:
+/***/ 125:
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "/resource/banner1.jpg";
 
 /***/ }),
 
-/***/ 127:
+/***/ 126:
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "/resource/banner2.jpg";
 
 /***/ }),
 
-/***/ 128:
+/***/ 127:
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "/resource/banner3.jpg";
 
 /***/ }),
 
-/***/ 129:
+/***/ 128:
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "/resource/banner4.jpg";
 
 /***/ }),
 
-/***/ 130:
+/***/ 129:
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "/resource/banner5.jpg";

@@ -1,14 +1,14 @@
-webpackJsonp([6],{
+webpackJsonp([9],{
 
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(144);
+	module.exports = __webpack_require__(161);
 
 
 /***/ }),
 
-/***/ 144:
+/***/ 161:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*
@@ -19,8 +19,8 @@ webpackJsonp([6],{
 	*/
 
 	'use strict';
-	__webpack_require__(145);
-	__webpack_require__(147);
+	__webpack_require__(162);
+	__webpack_require__(164);
 	var _mm = __webpack_require__(10);
 
 	$(function(){
@@ -28,18 +28,24 @@ webpackJsonp([6],{
 	        $element    = $('.' + type + '-success');
 	    // 显示对应的提示元素
 	    $element.show();
+	    if(type === 'payment')
+	    {
+	    	var orderNumber  = _mm.getUrlParam('orderNumber');
+	    	var $orderNumber = $element.find('.order-number');
+	    	$orderNumber.attr('href',$orderNumber.attr('href')+orderNumber);
+	    }
 	})
 
 /***/ }),
 
-/***/ 145:
+/***/ 162:
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 147:
+/***/ 164:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*
@@ -50,11 +56,11 @@ webpackJsonp([6],{
 	*/
 
 	'use strict';
-	__webpack_require__(148);
+	__webpack_require__(165);
 
 /***/ }),
 
-/***/ 148:
+/***/ 165:
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

@@ -102,4 +102,8 @@ public interface UserService {
     ServerResponse<User> updateInformation(HttpSession session,User user);
 
     ServerResponse<User> getInformation(Integer userId);
+
+
+
+
 }

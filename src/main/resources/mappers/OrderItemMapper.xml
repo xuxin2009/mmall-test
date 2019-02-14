@@ -166,9 +166,15 @@
 
   <select id="selectOrderItemByUserIdAndOrderNo" parameterType="map" resultMap="BaseResultMap">
     SELECT <include refid="Base_Column_List"/>
-    FROM mmall_orderItem
+    FROM mmall_order_Item
     WHERE  user_id = #{userId}
     and order_no = #{orderNo}
+  </select>
+
+  <select id="selectOrderItemByOrderNo" parameterType="map" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/>
+    FROM mmall_order_Item
+    WHERE order_no = #{orderNo}
   </select>
 
   <insert id="batchInsert" parameterType="list">

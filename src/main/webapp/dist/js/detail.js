@@ -3,7 +3,7 @@ webpackJsonp([2],{
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(109);
+	module.exports = __webpack_require__(108);
 
 
 /***/ }),
@@ -379,7 +379,7 @@ webpackJsonp([2],{
 
 /***/ }),
 
-/***/ 109:
+/***/ 108:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*
@@ -391,13 +391,13 @@ webpackJsonp([2],{
 
 	'use strict';
 
-	__webpack_require__(110);
+	__webpack_require__(109);
 	__webpack_require__(14);
 	__webpack_require__(7);
 	var _mm             = __webpack_require__(10);
-	var _product        = __webpack_require__(112);
+	var _product        = __webpack_require__(111);
 	var _cart           = __webpack_require__(18);
-	var templateIndex   = __webpack_require__(113);
+	var templateIndex   = __webpack_require__(112);
 
 	var page = {
 	    data : {
@@ -477,14 +477,14 @@ webpackJsonp([2],{
 
 /***/ }),
 
-/***/ 110:
+/***/ 109:
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 112:
+/***/ 111:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*
@@ -524,7 +524,7 @@ webpackJsonp([2],{
 
 /***/ }),
 
-/***/ 113:
+/***/ 112:
 /***/ (function(module, exports) {
 
 	module.exports = "<div class=\"intro-wrap\">\n    <div class=\"p-img-con\">\n        <div class=\"main-img-con\">\n            <img class=\"main-img\" src=\"{{imageHost}}{{mainImage}}\" alt=\"{{name}}\"/>\n        </div>\n        <ul class=\"p-img-list\">\n            {{#subImages}}\n            <li class=\"p-img-item\">\n                <img class=\"p-img\" src=\"{{imageHost}}{{.}}\" alt=\"{{name}}\" />\n            </li>\n            {{/subImages}}\n        </ul>\n    </div>\n    <div class=\"p-info-con\">\n        <h1 class=\"p-name\">{{name}}</h1>\n        <p class=\"p-subtitle\">{{subtitle}}</p>\n        <div class=\"p-info-item p-price-con\">\n            <span class=\"label\">价格:</span>\n            <span class=\"info\">￥{{price}}</span>\n        </div>\n        <div class=\"p-info-item\">\n            <span class=\"label\">库存:</span>\n            <span class=\"info\">{{stock}}</span>\n        </div>\n        <div class=\"p-info-item p-count-con\">\n            <span class=\"label\">数量:</span>\n            <input class=\"p-count\" value=\"1\" readonly=\"\"/>\n            <span class=\"p-count-btn plus\">+</span>\n            <span class=\"p-count-btn minus\">-</span>\n        </div>\n        <div class=\"p-info-item\">\n            <a class=\"btn cart-add\">加入购物车</a>\n        </div>\n    </div>\n</div>\n<div class=\"detail-wrap\">\n    <div class=\"detail-tab-con\">\n        <ul class=\"tab-list\">\n            <li class=\"tab-item active\">详细描述</li>\n        </ul>\n    </div>\n    <div class=\"detail-con\">\n        {{{detail}}}\n    </div>\n</div>";

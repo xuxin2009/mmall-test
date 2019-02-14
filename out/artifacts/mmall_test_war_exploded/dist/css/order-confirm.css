@@ -74,7 +74,8 @@
 }
 /*地址部分的样式*/
 
-.address-item
+.address-item,
+.address-add
 {
 	margin: 20px 20px 0 0;
 	width: 200px;
@@ -87,7 +88,8 @@
 {
 	border: 3px dashed #c60023;
 }
-.address-item:hover
+.address-item:hover,
+.address-add:hover
 {
 	background: #fafafa;
 }
@@ -125,20 +127,108 @@
 	margin-right: 5px;
 }
 
-.address-item .address-new {
+.address-add .address-new {
 	text-align: center;
 	color: #ccc;
 }
-.address-item .address-new .fa{
+.address-add .address-new .fa{
 
 	font-size: 42px;
 	line-height: 42px;
 }
 
-.address-item .address-new .text{
+.address-add .address-new .text{
 
 	font-size: 12px;
 	line-height: 42px;
+}
+
+
+
+/* model部分*/
+.model
+{
+	position: fixed;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #eee;
+	background: rgba(0,0,0,0.4);
+	z-index: 1000;
+	overflow-x: hidden;
+	overflow-y: auto; 
+}
+
+.model .model-container
+{
+	width: 700px;
+	margin: 50px auto;
+	background: #fff;
+	border-radius: 2px;
+}
+.model .model-container .model-header
+{
+	position: relative;
+	padding: 15px;
+	border-bottom: 1px solid #ccc;
+}
+.model .model-container .model-header .model-title
+{
+	font-size: 14px;
+
+}
+
+.model .model-container .model-header .close
+{
+	position: absolute;
+	padding: 10px;
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+}
+
+.model .model-container .model-body
+{
+	padding: 15px;
+	
+}
+
+/*form部分*/
+.form .form-line
+{
+	margin: 5px;
+	overflow: hidden;
+}
+.form .form-line .label
+{
+	display: block;
+	float: left;
+	width: 80px;
+	text-align: right;
+	height:30px;
+	line-height: 30px;
+	margin-right:10px;
+	cursor: pointer;  
+}
+.form .form-line .required
+{
+	color: red;
+}
+.form .form-line .form-item
+{
+	padding: 0 5px;
+	height: 30px;
+	line-height: 30px;
+	outline: none;
+	margin-right: 10px;
+}
+.form .form-line .address-btn
+{
+	margin-left: 90px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 13px;
 }
 
 /*商品清单部分*/

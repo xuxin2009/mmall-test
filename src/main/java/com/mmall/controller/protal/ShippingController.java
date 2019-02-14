@@ -9,6 +9,7 @@ import com.mmall.pojo.User;
 import com.mmall.service.ShippingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,7 +50,7 @@ public class ShippingController {
      * @param shippingId
      * @return
      */
-    @RequestMapping("del.do")
+    @RequestMapping("delete.do")
     @ResponseBody
     public ServerResponse add(HttpSession session, Integer shippingId)
     {
@@ -69,7 +70,7 @@ public class ShippingController {
      */
     @RequestMapping("update.do")
     @ResponseBody
-    public ServerResponse update(HttpSession session, Shipping shipping)
+    public ServerResponse update(HttpSession session,Shipping shipping)
     {
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if(user == null)
